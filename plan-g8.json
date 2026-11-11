@@ -1,0 +1,15 @@
+{
+    "summary":  "六项修复与口径统一完成后启动 G8 最终复核，确认 BUG-001~006 关闭并重出 51 条 REQ 矩阵。",
+    "tasks":  [
+                  {
+                      "id_ref":  "G8-FINAL",
+                      "title":  "G8 最终复核：BUG-001~006 关闭判定 + 51 条 REQ 矩阵（基线 spec v1.1.4）",
+                      "assigned_to":  "pt-qa-verifier",
+                      "body":  "前置：spec v1.1.4（CR-010）、task-31 测试有效性修复、task-32 tasks.md 对齐、task-33 输入边界修复均已完成。\n\n任务：G8 最终复核。不改任何产品代码/spec/plan/tasks/tests/assets，只新增/更新 .qa-verify/ 与报告。\n\n必须覆盖：\n1. BUG-005 关闭确认：按 spec v1.1.4 四类落点重测——A 类三种（棋盘外/石块/死格）无 invalid、同格=取消选中无 invalid、非相邻=选中转移无 invalid、相邻无匹配=200ms 回弹且 invalid 恰好 1 次；四视口各测一遍。判定必须基于**实际播放事件**（AudioBufferSourceNode.start），不得只看网络请求。\n2. BUG-006 关闭确认：确认 tests/e2e 的 invalid 断言不再空转（可用负控思路自行验证：构造应触发 invalid 的场景，断言必须失败于「0 次」期望）。\n3. 输入边界回归：按下点贴近格边界、位移 0.4 格但抬起跨格 → 按点击处理（相邻交换/自身取消选中），无 invalid。\n4. BUG-001/002/003/004 回归确认（四视口 64 格零偏差、seed=1 重排、decodeAudioData 14/14 MP3、REQ-045/048 用例有效）。\n5. 全量：npm test、npm run typecheck、npm run build、npx playwright test；关键链路抽查（通关写榜、6 类损坏存档、刷新中断提示一次、零第三方请求、p95）。\n6. 重出 51 条 REQ 矩阵；REQ-039 若仍无 3 人签署继续标 BLOCKED（人工项，不得默认 PASS）。\n\n交付：g8-final-report.md（51 条矩阵 + BUG-001~006 关闭判定 + 是否新增 BUG-007 起）+ .qa-verify 证据。\n规则：只依据 spec v1.1.4；禁止照抄实现方或 Manager 结论；总结论只能是 全部 PASS / 存在缺陷（N 个，含严重级别）/ 阻塞。\n验收：六个 BUG 均有明确关闭/未关闭结论与证据；矩阵 51 条无遗漏；REQ-039 如实标注。",
+                      "depends_on_refs":  [
+                                              "task-32",
+                                              "task-33"
+                                          ]
+                  }
+              ]
+}

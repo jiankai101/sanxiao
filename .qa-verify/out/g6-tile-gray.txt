@@ -1,0 +1,7 @@
+﻿tile-water.webp      vs tile-leaf.webp       mean|��gray|=26.8/255
+tile-water.webp      vs tile-flame.webp      mean|��gray|=29.5/255
+tile-leaf.webp       vs tile-crystal.webp    mean|��gray|=31.9/255
+tile-water.webp      vs tile-crystal.webp    mean|��gray|=37.1/255
+tile-leaf.webp       vs tile-flame.webp      mean|��gray|=40.5/255
+tile-flame.webp      vs tile-crystal.webp    mean|��gray|=44.8/255
+min pair diff = 26.8

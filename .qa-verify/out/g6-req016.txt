@@ -1,0 +1,29 @@
+﻿
+ RUN  v3.2.7 C:/Users/lenovo/.csgclaw/im/workspaces/room-1794319989719887800
+
+stdout | .qa-verify/g6-req016.spec.ts > REQ-016 G6 运行时接线回归 > REQ-016 160 局（8 关 × 20 种子）结算后死局残留必须为 0
+WITH_POST_SETTLE {"games":160,"dead":0,"shuffleEvents":6,"shuffleStepCostBugs":0,"deadExamples":[]}
+
+stdout | .qa-verify/g6-req016.spec.ts > REQ-016 G6 运行时接线回归 > REQ-016 对照组：不接系统层重排时该模拟确实会检出死局（证明用例有灵敏度）
+WITHOUT_POST_SETTLE {"games":160,"dead":6,"shuffleEvents":0,"shuffleStepCostBugs":0,"deadExamples":[{"level":8,"seed":1,"step":4,"movesLeft":25,"score":1170},{"level":8,"seed":4,"step":0,"movesLeft":29,"score":180},{"level":8,"seed":5,"step":0,"movesLeft":29,"score":180}]}
+
+ ✓ .qa-verify/g6-req016.spec.ts (2 tests) 10033ms
+   ✓ REQ-016 G6 运行时接线回归 > REQ-016 160 局（8 关 × 20 种子）结算后死局残留必须为 0  5484ms
+   ✓ REQ-016 G6 运行时接线回归 > REQ-016 对照组：不接系统层重排时该模拟确实会检出死局（证明用例有灵敏度）  4549ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  02:19:36
+   Duration  11.30s (transform 214ms, setup 0ms, collect 478ms, tests 10.03s, environment 0ms, prepare 268ms)
+
+node.exe : npm notice
+At line:1 char:1
++ & "D:\develop1\node/node.exe" "D:\develop1\node/node_modules/npm/bin/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

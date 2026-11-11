@@ -1,0 +1,67 @@
+﻿PASS REQ-040/origin-960x720@dpr1 :: e=0.000 f=0.000 a=1.00000 d=1.00000 期望 a=1.00000
+PASS REQ-041/fit-960x720@dpr1 :: 绘制范围 x[0.00,960.00] y[0.00,720.00] 画布 960x720
+PASS REQ-040/board-rect-960x720@dpr1 :: 棋盘投影 (224.00,96.00) 边长 512.00；期望 (224.00,96.00) 边长 512.00
+PASS REQ-049/corners-960x720@dpr1 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-960x720@dpr1 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-960x720@dpr1 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-960x720@dpr1 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-960x720@dpr1 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-960x720@dpr1 :: pageerror=[]
+PASS REQ-040/origin-1280x800@dpr1 :: e=0.000 f=0.000 a=1.11111 d=1.11111 期望 a=1.11110
+PASS REQ-041/fit-1280x800@dpr1 :: 绘制范围 x[0.00,1066.67] y[0.00,800.00] 画布 1067x800
+PASS REQ-040/board-rect-1280x800@dpr1 :: 棋盘投影 (248.89,106.67) 边长 568.89；期望 (248.89,106.67) 边长 568.88
+PASS REQ-049/corners-1280x800@dpr1 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-1280x800@dpr1 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-1280x800@dpr1 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-1280x800@dpr1 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-1280x800@dpr1 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-1280x800@dpr1 :: pageerror=[]
+PASS REQ-040/origin-600x800@dpr1 :: e=0.000 f=0.000 a=0.62500 d=0.62500 期望 a=0.62500
+PASS REQ-041/fit-600x800@dpr1 :: 绘制范围 x[0.00,600.00] y[0.00,450.00] 画布 600x450
+PASS REQ-040/board-rect-600x800@dpr1 :: 棋盘投影 (140.00,60.00) 边长 320.00；期望 (140.00,60.00) 边长 320.00
+PASS REQ-049/corners-600x800@dpr1 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-600x800@dpr1 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-600x800@dpr1 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-600x800@dpr1 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-600x800@dpr1 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-600x800@dpr1 :: pageerror=[]
+PASS REQ-040/origin-360x640@dpr1 :: e=0.000 f=0.000 a=0.37500 d=0.37500 期望 a=0.37500
+PASS REQ-041/fit-360x640@dpr1 :: 绘制范围 x[0.00,360.00] y[0.00,270.00] 画布 360x270
+PASS REQ-040/board-rect-360x640@dpr1 :: 棋盘投影 (84.00,36.00) 边长 192.00；期望 (84.00,36.00) 边长 192.00
+PASS REQ-049/corners-360x640@dpr1 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-360x640@dpr1 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-360x640@dpr1 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-360x640@dpr1 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-360x640@dpr1 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-360x640@dpr1 :: pageerror=[]
+PASS REQ-040/origin-320x568@dpr1 :: e=0.000 f=0.000 a=0.33333 d=0.33333 期望 a=0.33333
+PASS REQ-041/fit-320x568@dpr1 :: 绘制范围 x[0.00,320.00] y[0.00,240.00] 画布 320x240
+PASS REQ-040/board-rect-320x568@dpr1 :: 棋盘投影 (74.67,32.00) 边长 170.67；期望 (74.67,32.00) 边长 170.67
+PASS REQ-049/corners-320x568@dpr1 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-320x568@dpr1 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-320x568@dpr1 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-320x568@dpr1 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-320x568@dpr1 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-320x568@dpr1 :: pageerror=[]
+PASS REQ-040/origin-1280x800@dpr2 :: e=0.000 f=0.000 a=2.22222 d=2.22222 期望 a=2.22220
+PASS REQ-041/fit-1280x800@dpr2 :: 绘制范围 x[0.00,2133.33] y[0.00,1600.00] 画布 2133x1600
+PASS REQ-040/board-rect-1280x800@dpr2 :: 棋盘投影 (248.89,106.67) 边长 568.89；期望 (248.89,106.67) 边长 568.88
+PASS REQ-049/corners-1280x800@dpr2 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-1280x800@dpr2 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-1280x800@dpr2 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-1280x800@dpr2 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-1280x800@dpr2 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-1280x800@dpr2 :: pageerror=[]
+PASS REQ-040/origin-360x640@dpr2 :: e=0.000 f=0.000 a=0.75000 d=0.75000 期望 a=0.75000
+PASS REQ-041/fit-360x640@dpr2 :: 绘制范围 x[0.00,720.00] y[0.00,540.00] 画布 720x540
+PASS REQ-040/board-rect-360x640@dpr2 :: 棋盘投影 (84.00,36.00) 边长 192.00；期望 (84.00,36.00) 边长 192.00
+PASS REQ-049/corners-360x640@dpr2 :: (1,1)->(1,1) (1,8)->(1,8) (8,1)->(8,1) (8,8)->(8,8)
+PASS REQ-049/all64-360x640@dpr2 :: 64 格点击：错格 0，null 0
+PASS REQ-049/outside-360x640@dpr2 :: 棋盘外（逻辑 60,60）点击后 selected=null
+PASS REQ-049/threshold-360x640@dpr2 :: 0.4 格拖拽 → selected=(4,4)，步数 20→20
+PASS REQ-003/drag-360x640@dpr2 :: 视觉拖动 (1,2)->(2,2) 后步数 20→19，status=playing
+PASS REQ-051/pageerror-360x640@dpr2 :: pageerror=[]
+FAIL REQ-049/obstacle-ignore :: 死格(3,3)->selected，石块(2,3)->null，普通格(1,1)->(1,1)
+
+SUMMARY total=64 pass=63 fail=1
+FAILED: REQ-049/obstacle-ignore :: 死格(3,3)->selected，石块(2,3)->null，普通格(1,1)->(1,1)

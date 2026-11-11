@@ -1,0 +1,4 @@
+﻿{"before":{"st":{"status":"playing","levelId":1,"seed":1,"score":0,"movesLeft":20},"w":1066.65625},"after":{"st":{"status":"playing","levelId":1,"seed":1,"score":0,"movesLeft":20},"w":600},"resizedAtMs":228,"samples":[{"ms":1,"w":1066.65625},{"ms":25,"w":1066.65625},{"ms":57,"w":1066.65625},{"ms":83,"w":1066.65625},{"ms":104,"w":1066.65625},{"ms":136,"w":1066.65625}]}
+PASS REQ-041/redraw-200ms :: 视口 1280x800→600x800 后画布宽 600.0，用时 228ms（debounce 200ms + 帧；阈值 400ms 观测上限）
+PASS REQ-041/state-kept :: 分数 0→0，步数 20→20，status=playing
+PASS REQ-041/exact-4x3 :: 缩放后画布 600.0x450（4:3）

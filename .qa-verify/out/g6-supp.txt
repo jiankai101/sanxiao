@@ -1,0 +1,17 @@
+﻿PASS REQ-049/absorb-1280x800 :: 视觉格→选中格：1,1→1,1 / 4,4→4,4 / 8,8→8,8 / 2,7→2,7
+PASS REQ-049/absorb-600x800 :: 视觉格→选中格：1,1→1,1 / 4,4→4,4 / 8,8→8,8 / 2,7→2,7
+PASS REQ-049/absorb-360x640 :: 视觉格→选中格：1,1→1,1 / 4,4→4,4 / 8,8→8,8 / 2,7→2,7
+PASS REQ-049/absorb-320x568 :: 视觉格→选中格：1,1→1,1 / 4,4→4,4 / 8,8→8,8 / 2,7→2,7
+PASS REQ-031/json-parse :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-031/not-object :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-031/missing-field :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-031/type-error :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-031/out-of-range :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-031/version-mismatch :: 提示="存档已重置"，备份=1，重建 saveVersion=1，可进第 1 关=true
+PASS REQ-044/full :: full={"swap":150,"revert":200,"clear":180,"fall":160,"special":300,"panel":200}
+PASS REQ-044/reduced :: reduced={"swap":100,"revert":100,"clear":100,"fall":100,"special":100,"panel":100}
+PASS REQ-044/trace :: animations()=["swap:150","clear:180","fall:160"]
+PASS REQ-010/012/special-tile :: 对局状态={"status":"playing","levelId":1,"seed":2,"score":360,"movesLeft":19}，盘面特化格=null
+PASS REQ-044/reduced-trace :: reduced 下 trace=["reduced-settle:100(R)"]
+
+SUMMARY total=15 pass=15 fail=0

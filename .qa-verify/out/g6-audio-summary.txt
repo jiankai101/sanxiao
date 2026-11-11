@@ -1,0 +1,19 @@
+﻿file                      nom xing_f  pcm_f   mp3_ms  err_ms frameErr   ogg_ms  |o-m|
+bgm-main                60000   2500   2499  59976.0   -24.0     1.00  60000.0   24.0
+sfx-swap                  120      5      4     96.0   -24.0     1.00    120.0   24.0
+sfx-invalid               150      6      5    120.0   -30.0     1.25    150.0   30.0  <-- FAIL
+sfx-match                 250     10      9    216.0   -34.0     1.42    250.0   34.0  <-- FAIL
+sfx-cascade               300     13     12    288.0   -12.0     0.50    300.0   12.0
+sfx-special-line          400     17     16    384.0   -16.0     0.67    400.0   16.0
+sfx-special-rainbow       600     25     24    576.0   -24.0     1.00    600.0   24.0
+sfx-ice-break             300     13     12    288.0   -12.0     0.50    300.0   12.0
+sfx-stone-break           350     15     14    336.0   -14.0     0.58    350.0   14.0
+sfx-shuffle               500     21     20    480.0   -20.0     0.83    500.0   20.0
+sfx-star                  500     21     20    480.0   -20.0     0.83    500.0   20.0
+sfx-win                  1500     63     62   1488.0   -12.0     0.50   1500.0   12.0
+sfx-lose                 1200     50     49   1176.0   -24.0     1.00   1200.0   24.0
+sfx-click                  80      3      2     48.0   -32.0     1.33     80.0   32.0  <-- FAIL
+
+MP3 frame = 24.0ms @48kHz; �ж���|err| <= 1 frame
+PASS: 11 / 14  FAIL: ['sfx-invalid', 'sfx-match', 'sfx-click']
+��������ǡ�� 1 ֡��: ['bgm-main', 'sfx-swap', 'sfx-special-rainbow', 'sfx-lose']

@@ -1,0 +1,17 @@
+{
+    "summary":  "G6 结论：BUG-003 改用解码口径后仍未关闭（3 文件差 1.2~1.4 帧），OBS-01 经 spec 确认属 REQ-049 偏差；追加两项修复后做 G7 终验。",
+    "tasks":  [
+                  {
+                      "id_ref":  "BUG003B-MP3",
+                      "title":  "BUG-003 续修：按解码口径修正 MP3 时长（补 Info 帧）",
+                      "assigned_to":  "pt-asset-maker",
+                      "body":  "背景：G6 用游戏真实解码口径（Chrome decodeAudioData，libsndfile 交叉验证）推翻上一轮 frames×1152 的自检结论。根因：LAME 的 Info/Xing 帧被计入声明帧，解码器 gapless 裁掉该帧，实际可解码载荷=(声明帧-1)×1152；因此 sfx-invalid、sfx-match、sfx-click 实测分别 -30ms(-1.25帧)、-34ms(-1.42帧)、-32ms(-1.33帧)，超出 ≤1 帧容差。\n\n修复要求（范围限 assets/*.mp3、assets/tools/、assets/manifest.md、assets/checksums.json；不改 OGG、不改 spec 数值）：\n1. 对 sfx-invalid、sfx-match、sfx-click 各补 1 个音频帧（或在编码时显式补偿 Info 帧），使**解码后**时长落入标称值 ±1 帧内。\n2. 其余 11 个 MP3 若同样受 Info 帧影响，一并按解码口径复核并修正，不要只修这 3 个。\n3. 校验方式必须换成解码口径：优先用 Python 解码（soundfile/libsndfile 或 ffmpeg -i 解析实际时长）；不得再用 frames×1152 作为唯一依据。verify_assets.py 的断言改为「解码时长 vs 标称 ≤1 帧」，并保留对 Xing 声明值的记录以便对照。\n4. BGM 循环接缝不得退化（当前 |x[-1]-x[0]|≈0.0074），体积仍 ≤2048KB。\n5. 更新 checksums.json 与 manifest.md。\n\n交付：重编码文件 + verify_assets.py 解码口径输出（14 个 MP3 逐个给出解码时长/标称/误差）+ 体积与接缝结果。\n验收：14/14 MP3 解码时长误差 ≤1 帧（24ms）；OGG 未变；接缝不退化；体积 ≤2048KB；脚本自检 PASS。"
+                  },
+                  {
+                      "id_ref":  "BUG005-BLOCKER",
+                      "title":  "REQ-049 偏差修复：石块/死格命中必须忽略（不选中）",
+                      "assigned_to":  "pt-impl-systems",
+                      "body":  "背景：G6 OBS-01 经查 spec 确认属偏差 —— REQ-049「命中失败路径」明确写：指针点落在投影矩形外、**石块格或死格时忽略**，不交换、不扣步、不播报错误。当前实现允许石块/死格被选中（出现选中态），与「忽略」不符。\n\n修复要求（范围限 src/ui/input、src/systems/game、tests/ui、tests/systems、tests/e2e；不改 src/core 与 src/render 语义）：\n1. 命中到阻挡型障碍（石块 stone、死格 hole）时完全忽略：不设置选中态、不产生交换候选、不播 invalid 音、不播报。\n2. 若已存在选中格，点到石块/死格时的行为需明确：保持原选中不变（视为无效点击），不得清除选中导致玩家误操作。\n3. 冰块格（覆盖型障碍，元素仍参与匹配）不受影响，必须仍可选中与交换。\n4. 补测试：单测覆盖「石块/死格点击不改变选中态、不扣步、无 audio 事件」；E2E 覆盖真实点击石块与死格后 selected 为空（或维持原选中）、moves 不变；并回归冰块格仍可交换。\n5. 不改 spec/plan/tasks、src/core、src/render、assets。\n\n交付：代码 + 测试 + 说明（障碍分类如何判定、冰块为何不受影响）。\n验收：npm test 全绿；E2E 新用例通过；REQ-049 命中失败路径达标；既有输入用例零回归。"
+                  }
+              ]
+}

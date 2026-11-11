@@ -1,0 +1,23 @@
+{
+    "summary":  "G5 报 4 个缺陷：BUG-001 渲染双重偏移(impl-core)、BUG-002 死局重排未接入与 BUG-004 缺 REQ 用例(impl-systems)、BUG-003 MP3 时长(asset-maker)，修复后由 QA 回归复验。",
+    "tasks":  [
+                  {
+                      "id_ref":  "BUG001-LAYOUT",
+                      "title":  "BUG-001 修复：消除画布双重留边偏移，四视口命中与视觉一致",
+                      "assigned_to":  "pt-impl-core",
+                      "body":  "缺陷：BUG-001（Critical，QA 独立发现）画布双重留边偏移。#game 元素已按 4:3 居中（1280×800 下 rect.left=106.7、宽 1066.7），但 CanvasHost 的 canvasTransform 又用 computeLayout(window.innerWidth, window.innerHeight) 的 offsetX/offsetY 再平移一次，导致：1280×800 棋盘左上实际 355.6 应为 248.9；600×800 实际 235 应为 60 且场景被裁掉底部 3~4 行；360×640、320×568 同型。点击视觉 (4,4) 实际吸附 (4,5)@1280、(8,4)@600/360，错位 1~4 格。违反 REQ-040/041/049。\n\n修复要求（范围限 src/render 与 tests/render，不改 src/core 语义、不改 systems/ui）：\n1. 只允许一次偏移来源。以画布元素的实际 CSS 尺寸为基准计算等比缩放（不应使用 window.innerWidth/innerHeight 推导再叠加 CSS 居中留边）；若 #game 已负责居中，则 canvasTransform 的 offset 必须归零。\n2. 命中换算（screenToLogical/pickNearestCell）与绘制变换必须共用同一坐标基准，保证「点击视觉格 = 命中的格」在 1280×800、600×800、360×640、320×568 四个视口均成立（误差 \u003c 0.5px 或 0 格偏差）。\n3. 新增回归测试，必须能在「非 4:3 视口 + 元素已居中」的场景下失败于旧实现：断言绘制棋盘左上角与实际 CSS 元素内的预期位置一致、四角格命中映射正确、600×800 下不得裁切（棋盘完整可见）。\n4. 不得通过修改 E2E 的 cellPoint 换算来「修绿」；测试必须独立于输入层的换算逻辑（例如用 canvas rect + 固定比例独立计算期望坐标）。\n\n交付：代码 + 新增测试 + 一段说明（旧实现错在哪、新实现的单一位移来源是什么、四个视口下的实测坐标）。\n验收：四个视口下视觉棋盘与命中一致、棋盘完整可见；npm test 全绿；draw-calls 等既有断言零回归。"
+                  },
+                  {
+                      "id_ref":  "BUG002-SHUFFLE",
+                      "title":  "BUG-002+004 修复：结算后死局重排接入 + REQ-045/048 用例补齐",
+                      "assigned_to":  "pt-impl-systems",
+                      "body":  "缺陷：BUG-002（High）REQ-016 无可行步重排未接入运行时 —— ensurePlayable 仅被 index.ts 重导出，systems/ui/render 无调用点，160 局随机对局出现 6 次死局（status=playing 且步数\u003e0、shuffle 事件 0 次）。\n缺陷：BUG-004（Low）REQ-045、REQ-048 无任何用例，违反 spec 第 7 章「用例名必须包含 REQ 编号」。\n\n修复要求（范围限 src/systems、src/ui、tests/systems、tests/ui、tests/e2e，不改 src/core 与 src/render 语义；若确需 core 新 API，先报告不要自行改 core）：\n1. BUG-002：在结算提交后、进入下一次输入前，若棋盘无可行步且对局未结束，必须调用 core 的重排能力（ensurePlayable/shuffle）并产生 shuffle 事件、播放 shuffle 音效、给出可见提示；重排后必须保证至少一个可行步；不得改变步数、分数与已结算结果；重排失败（极端情况）需有确定降级路径。\n2. BUG-002 需补集成测试：用 QA 给的复现序列（第 8 关 seed=1，(1,2)→(1,3),(3,5)→(4,5),(1,6)→(1,7),(1,6)→(2,6),(1,3)→(1,4)）断言重排发生、shuffle 事件计数 ≥1、findMove 非 null、对局可继续。\n3. BUG-004：为 REQ-045（BGM 首手势播放、循环接缝 ≤20ms、visibilitychange 暂停/恢复）与 REQ-048 补齐用例，用例名必须含 REQ 编号；不得只写常量断言，需覆盖可见性暂停/恢复与解码失败降级路径。\n4. 不改 spec/plan/tasks、src/core、src/render、assets。\n\n交付：代码 + 新增测试 + 复现序列前后行为对比 + 说明。\n验收：npm test 全绿；BUG-002 复现序列不再死局；REQ-045/048 用例存在且有效；构建成功。"
+                  },
+                  {
+                      "id_ref":  "BUG003-MP3",
+                      "title":  "BUG-003 修复：MP3 回退集时长对齐 spec 10.2",
+                      "assigned_to":  "pt-asset-maker",
+                      "body":  "缺陷：BUG-003（Low）MP3 回退集时长与 spec 10.2 不符，每个文件多 24ms（sfx-click 0.08→0.120；bgm 60.024；swap 0.144；invalid 0.192；match 0.288；cascade 0.336；special-line 0.432；special-rainbow 0.624；ice 0.336；stone 0.384；shuffle/star 0.528；win 1.536；lose 1.224）。OGG 14/14 精确，问题只在 MP3 编码（疑似编码器延迟/padding 未裁剪）。\n\n修复要求（范围限 assets/ 与 assets/tools/，不改 spec 数值、不改 OGG）：\n1. 重新编码 MP3，使每个文件时长与 spec 10.2 标称值一致（Q1 输入输出实测后，按 MP3 帧时长量化取最接近值，并在报告里给出每个文件的帧数与理论时长）。\n2. 更新 assets/checksums.json 与 manifest.md 中相关哈希/时长；总音频体积仍须 ≤2048KB。\n3. 扩展 verify_assets.py：对 MP3 增加时长断言（容差 ≤1 个 MP3 帧约 26ms 以内，且必须优于当前 +24ms），OGG 断言保持。\n\n交付：重编码 MP3 + 更新后的 checksums/manifest + verify_assets.py 输出。\n验收：14 个 MP3 时长与标称值一致（容差内）；OGG 未受影响；总体积不超预算；脚本自检 PASS。"
+                  }
+              ]
+}

@@ -1,0 +1,4 @@
+url=http://127.0.0.1:4173/assets/sfx-invalid-BqsWogSh.ogg
+old_regex=false
+new_regex=true
+audio_live_route_regex=true

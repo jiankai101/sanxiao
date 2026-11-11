@@ -1,0 +1,20 @@
+﻿import { chromium } from '@playwright/test';
+const b=await chromium.launch({channel:'chrome'});
+const p=await b.newPage({viewport:{width:1280,height:800}});
+await p.goto('http://127.0.0.1:5056/?seed=1',{waitUntil:'networkidle'});
+await p.waitForFunction(()=>Boolean(window.__wmgTest));
+await p.evaluate(()=>window.__wmgTest.startLevel(1));
+await p.waitForTimeout(400);
+await p.evaluate(()=>{
+  const c=document.getElementById('game');
+  window.__trace={resize:null,mutations:[]};
+  window.addEventListener('resize',()=>{ if(window.__trace.resize===null) window.__trace.resize=performance.now(); });
+  const mo=new MutationObserver((ms)=>{ for(const m of ms){ if(m.attributeName==='style'){ window.__trace.mutations.push({t:performance.now(),w:c.getBoundingClientRect().width,attr:c.getAttribute('style')}); } } });
+  mo.observe(c,{attributes:true,attributeFilter:['style']});
+});
+await p.setViewportSize({width:360,height:640});
+await p.waitForTimeout(600);
+const t=await p.evaluate(()=>window.__trace);
+const first=t.mutations.find(m=>Math.abs(m.w-360)<0.5);
+console.log(JSON.stringify({resize:t.resize,mutations:t.mutations.slice(0,5),first360:first,delta:first&&t.resize?first.t-t.resize:null},null,1));
+await b.close();

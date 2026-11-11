@@ -1,0 +1,58 @@
+﻿
+> core-game-001@1.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 C:/Users/lenovo/.csgclaw/im/workspaces/room-1794319989719887800
+
+ ✓ tests/core/rng.spec.ts (4 tests) 8ms
+ ✓ tests/core/constants.spec.ts (6 tests) 4ms
+ ✓ tests/core/score.spec.ts (5 tests) 4ms
+ ✓ tests/systems/storage.spec.ts (11 tests) 10ms
+ ✓ tests/render/layout.spec.ts (15 tests) 28ms
+ ✓ tests/render/loop.spec.ts (5 tests) 7ms
+ ✓ tests/systems/levels.spec.ts (8 tests) 8ms
+ ✓ tests/core/swap.spec.ts (6 tests) 7ms
+ ✓ tests/core/match.spec.ts (5 tests) 7ms
+ ✓ tests/render/animation.spec.ts (4 tests) 5ms
+ ✓ tests/render/scene.spec.ts (5 tests) 16ms
+ ✓ tests/ui/leaderboard-view.spec.ts (3 tests) 10ms
+ ✓ tests/core/game.spec.ts (4 tests) 12ms
+ ✓ tests/core/gravity.spec.ts (5 tests) 56ms
+ ✓ tests/core/shuffle.spec.ts (3 tests) 32ms
+ ✓ tests/core/purity.spec.ts (3 tests) 43ms
+ ✓ tests/core/goals.spec.ts (6 tests) 5ms
+ ✓ tests/ui/hud.spec.ts (4 tests) 4ms
+ ✓ tests/ui/input.spec.ts (8 tests) 5ms
+ ✓ tests/systems/save-service.spec.ts (8 tests) 10ms
+ ✓ tests/core/special-generate.spec.ts (6 tests) 8ms
+ ✓ tests/core/special-trigger.spec.ts (5 tests) 9ms
+ ✓ tests/core/generate.spec.ts (6 tests) 318ms
+   ✓ REQ-001/025 board generation > generates 200 seeds with 64 cells, no initial triple and at least one move  304ms
+ ✓ tests/core/resolve.spec.ts (10 tests) 23ms
+ ✓ tests/systems/leaderboard.spec.ts (7 tests) 13ms
+ ✓ tests/systems/post-settle.spec.ts (5 tests) 27ms
+ ✓ tests/systems/tween-timeline.spec.ts (10 tests) 19ms
+ ✓ tests/core/state-machine.spec.ts (4 tests) 4ms
+ ✓ tests/ui/panel-fade.spec.ts (2 tests) 2ms
+ ✓ tests/systems/audio.spec.ts (7 tests) 7ms
+ ✓ tests/render/assets.spec.ts (5 tests) 7ms
+ ✓ tests/render/tween.spec.ts (14 tests) 8ms
+ ✓ tests/render/draw-calls.spec.ts (7 tests) 8ms
+
+ Test Files  33 passed (33)
+      Tests  206 passed (206)
+   Start at  02:13:09
+   Duration  3.05s (transform 8.66s, setup 0ms, collect 27.90s, tests 734ms, environment 6ms, prepare 19.60s)
+
+node.exe : npm notice
+At line:1 char:1
++ & "D:\develop1\node/node.exe" "D:\develop1\node/node_modules/npm/bin/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,20 @@
+{
+    "summary":  "修补 REQ-044 可见补间缺口（impl-core 出渲染插值 API，impl-systems 接入主循环并补 favicon）。",
+    "tasks":  [
+                  {
+                      "id_ref":  "TWEEN-RENDER",
+                      "title":  "实现 A 补正：渲染层插值绘制 API（位移/淡出/缓动进度）+ 测试",
+                      "assigned_to":  "pt-impl-core",
+                      "body":  "背景：impl-core 交付中自报「逐格精灵位移动画未做插值，场景层按步重绘快照」。REQ-044 明确要求交换 150ms、无效回弹 200ms、单轮消除 180ms、单轮下落 160ms、特化 300ms、面板淡入 200ms，且减弱动效下全部 ≤100ms 且无位移补间。仅有时长常量而无可见补间，REQ-044 的人工观测项会判 FAIL。\n\n范围（仅 src/render 与 tests/render，不得改 core 语义、不得改 systems/ui/build）：\n1. 在 src/render 提供可被场景层消费的插值绘制能力：\n   - 棋盘绘制支持逐格位移偏移（tile offset x/y，单位 px 或格比例，需文档化）；\n   - 支持逐格透明度/缩放用于消除淡出；\n   - 提供纯函数计算缓动进度（给定 elapsed/duration/easing 返回 0..1），供 systems 主循环每帧传入。\n2. 保持现有 API 向后兼容：不传偏移时行为与当前完全一致（现有 draw-calls.spec 不得修改期待值）。\n3. 新增测试：进度函数边界（0/0.5/1、elapsed\u003eduration 截断、duration=0 返回 1）、偏移绘制时 tile 目标矩形随之平移、alpha 生效、减弱动效下 tweenOffset 恒 0 且时长 ≤100ms（沿用 TASK-021 断言）。\n4. 不改 REQ 数值、不改 spec/plan/tasks。\n\n交付：代码 + 新增/更新测试 + 一句给 impl-systems 的接入说明（每帧传什么参数、顺序建议 fall→clear→special）。\n验收：npm test 全绿；新增测试覆盖上述四点；现有 render 测试零回归；tsc --noEmit 0 error。"
+                  },
+                  {
+                      "id_ref":  "TWEEN-WIRE",
+                      "title":  "实现 B 补正：主循环接入可见补间 + favicon 404 修复",
+                      "assigned_to":  "pt-impl-systems",
+                      "body":  "前置：先完成并提交 task-5；再消费 impl-core 在 tween 渲染任务中提供的新 API（不要重复实现插值，也不要修改 src/render 与 src/core）。\n\n范围（src/ui、src/systems、index.html 与构建配置，保持角色边界）：\n1. 主循环按渲染层提供的进度函数驱动可见补间：交换 150ms、无效回弹 200ms、单轮消除 180ms（淡出+缩放）、单轮下落 160ms、特化触发 300ms、面板淡入 200ms；减弱动效或 prefers-reduced-motion 下全部 ≤100ms 且无位移补间。\n2. 播放顺序仍为 fall→clear→special，步数与结算不得因补间改变；超时保护（6s 压缩等待）保持。\n3. 补 favicon（内联 SVG 或 assets 内已有图标均可，需在 index.html 声明），消除控制台 favicon.ico 404；不得新增未登记资源到 assets 清单之外。\n4. 不改 spec/plan/tasks，不改 src/core 与 src/render。\n\n交付：代码 + 自测步骤（含如何肉眼确认 6 类动画时长）+ 浏览器控制台无报错证据（含 favicon 不再 404）。\n验收：npm test 全绿、npm run build 成功、浏览器 console 无 error/404；REQ-044 六类时长可观测；REQ-051 p95 帧间隔不退化。",
+                      "depends_on_refs":  [
+                                              "TWEEN-RENDER"
+                                          ]
+                  }
+              ]
+}

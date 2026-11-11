@@ -1,0 +1,11 @@
+{
+    "summary":  "G9 新增 BUG-008：并行 worker 挤占合成时机导致时序断言偶发超阈。按「不放宽阈值、隔离时序敏感用例」修复。",
+    "tasks":  [
+                  {
+                      "id_ref":  "BUG008-TIMING",
+                      "title":  "BUG-008 修复：时序敏感用例隔离到单 worker project（不放宽 200ms 阈值）",
+                      "assigned_to":  "pt-impl-systems",
+                      "body":  "背景：G9 报 BUG-008（Low，测试层）：16 worker 全量并行跑 E2E 时，tests/e2e/resize.spec.ts 的「首帧」断言出现 215.2ms / 253.8ms，而同一用例的 rebind 指标仅 122.4–131.7ms，说明是并行 worker 挤占浏览器合成时机，不是 debounce 回归。spec 的 200ms 要求是针对真实单页面使用，不能为了测试并行度而放宽阈值。\n\n裁决（Manager）：**不放宽阈值**，改为隔离时序敏感用例的运行环境。\n\n改动要求（范围限 playwright.config.ts，必要时新增独立的 project 配置；不改任何 src/、assets/、spec/plan/tasks；不改 resize.spec.ts 的断言阈值）：\n1. 新增一个专用 project（如 \timing, workers=1、fullyParallel=false），testMatch 仅 **/tests/e2e/resize.spec.ts（以及你认为同样对时序敏感的 perf 类用例），并在默认并行 project 中 testIgnore 该文件，避免两边重复跑或并行挤占。\n2. 断言阈值保持 200ms 不变；不得改成 300ms、不得改成 p95 放宽。\n3. 连续 3 次全量 \npx playwright test 必须全绿，并在报告中给出三次的命令与结果摘要。\n4. 若发现其他 spec 也因并行导致偶发（如音效播放计时类），一并按同一方式隔离并在报告列出。\n\n交付：playwright.config.ts + 3 次全量运行结果 + 说明（哪些用例被隔离、为什么、是否影响总耗时）。\n验收：3 次连续全量运行全绿；resize 的 200ms 断言仍在且作为隔离 project 运行；其余用例仍并行且总数不减少。"
+                  }
+              ]
+}

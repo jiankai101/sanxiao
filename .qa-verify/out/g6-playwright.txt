@@ -1,0 +1,82 @@
+﻿node.exe : [WebServer] (node:57412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "D:\develop1\node/node.exe" "D:\develop1\node/node_modules/npm/bin/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:62352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm notice
+[WebServer] npm notice New major version of npm available! 11.12.1 -> 12.2.2
+[WebServer] npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+[WebServer] npm notice To update run: npm install -g npm@12.2.2
+[WebServer] npm notice
+[WebServer] (node:63292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:62504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 29 tests using 12 workers
+
+(node:57108) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:62608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:36992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63200) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:57584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:52032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:45768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  5 [chromium] › tests\e2e\level-select.spec.ts:4:3 › REQ-021 选关与解锁 › 初始仅第 1 关可点，其余锁定并显示提示 (2.2s)
+  ok  7 [chromium] › tests\e2e\motion.spec.ts:5:3 › REQ-044 visible tween wiring + favicon › declares an inline favicon and loads with no console error or 404 (2.4s)
+  ok  4 [chromium] › tests\e2e\leaderboard.spec.ts:4:3 › REQ-034/REQ-037/REQ-038 本地排行榜界面 › 标题、空态、上限提示与禁用词 (2.9s)
+  ok 11 [chromium] › tests\e2e\settings.spec.ts:4:3 › REQ-028/REQ-033/REQ-043/REQ-047 设置与结算 › 设置按钮 ≥44×44 且音量边界可操作 (2.9s)
+  ok  3 [chromium] › tests\e2e\input-a11y.spec.ts:12:3 › REQ-049 1280×800 单格热区尺寸 (3.5s)
+  ok 13 [chromium] › tests\e2e\level-select.spec.ts:16:3 › REQ-021 选关与解锁 › 每张卡片显示名称/星级/最高分 (1.7s)
+  ok  2 [chromium] › tests\e2e\audio-network.spec.ts:5:3 › REQ-034/REQ-051 网络与性能 › 第三方请求为 0，本地排行榜文案可见 (4.6s)
+  ok  9 [chromium] › tests\e2e\persistence.spec.ts:5:3 › REQ-030/REQ-031/REQ-032 存档持久化 › 设置修改刷新后保留 (4.0s)
+  ok 10 [chromium] › tests\e2e\perf.spec.ts:5:3 › REQ-051 本地静态构建 › dist 预览可打开且无启动错误 (4.7s)
+  ok 16 [chromium] › tests\e2e\settings.spec.ts:21:3 › REQ-028/REQ-033/REQ-043/REQ-047 设置与结算 › 重置进度回第 1 关并清空排行榜 (1.6s)
+  ok 17 [chromium] › tests\e2e\input-a11y.spec.ts:12:3 › REQ-049 600×800 单格热区尺寸 (2.0s)
+  ok 19 [chromium] › tests\e2e\persistence.spec.ts:17:3 › REQ-030/REQ-031/REQ-032 存档持久化 › 损坏存档 → 备份 + 5s 提示 + 可进第 1 关 (895ms)
+  ok 15 [chromium] › tests\e2e\leaderboard.spec.ts:18:3 › REQ-034/REQ-037/REQ-038 本地排行榜界面 › 清空入口二次确认并保持空态 (2.3s)
+  ok  1 [chromium] › tests\e2e\audio-live.spec.ts:4:3 › REQ-045/REQ-048 运行时音频行为 › REQ-045 首手势后 BGM 播放，页面隐藏暂停、恢复可见续播 (6.1s)
+  ok 20 [chromium] › tests\e2e\input-a11y.spec.ts:12:3 › REQ-049 360×640 单格热区尺寸 (1.4s)
+  ok 14 [chromium] › tests\e2e\motion.spec.ts:26:3 › REQ-044 visible tween wiring + favicon › exposes the six REQ-044 durations and records real swap/clear/fall tweens (4.1s)
+  ok 22 [chromium] › tests\e2e\audio-live.spec.ts:32:3 › REQ-045/REQ-048 运行时音频行为 › REQ-048 音频加载/解码失败静默降级并显示「音频不可用」图标 (1.2s)
+  ok 21 [chromium] › tests\e2e\persistence.spec.ts:30:3 › REQ-030/REQ-031/REQ-032 存档持久化 › 中途刷新 → 提示「上一局已中断」一次，二次刷新不再提示 (2.4s)
+  ok 23 [chromium] › tests\e2e\input-a11y.spec.ts:12:3 › REQ-049 320×568 单格热区尺寸 (1.2s)
+  ok  6 [chromium] › tests\e2e\core-flow.spec.ts:5:3 › REQ-019/REQ-020 核心链路 › 开始 → 有效交换 → 重开 → 返回选关，无 console error (8.5s)
+  ok 18 [chromium] › tests\e2e\audio-network.spec.ts:20:3 › REQ-034/REQ-051 网络与性能 › 3 秒对局采样：p95 帧间隔 ≤20ms (4.3s)
+  ok 24 [chromium] › tests\e2e\motion.spec.ts:50:3 › REQ-044 visible tween wiring + favicon › swap draws a distinct intermediate canvas frame (visible interpolation) (2.2s)
+  ok  8 [chromium] › tests\e2e\settlement-strict.spec.ts:16:3 › REQ-020/REQ-028/REQ-034 settlement timing and victory record › fixed seed full win writes leaderboard; t+200ms click is dead, t+350ms works (9.6s)
+  ok 12 [chromium] › tests\e2e\shuffle.spec.ts:13:3 › REQ-016 BUG-002 结算后死局自动重排 › 第 8 关 seed=1 QA 复现序列：重排发生、shuffle 事件 ≥1、findMove 非 null、对局可继续 (9.7s)
+  ok 25 [chromium] › tests\e2e\input-a11y.spec.ts:30:3 › REQ-003 输入等价 › 鼠标拖拽产生有效交换并扣 1 步 (2.2s)
+  ok 27 [chromium] › tests\e2e\motion.spec.ts:67:3 › REQ-044 visible tween wiring + favicon › invalid revert (200ms) and special creation (300ms) animate on screen (2.5s)
+  ok 28 [chromium] › tests\e2e\input-a11y.spec.ts:42:3 › REQ-003 输入等价 › 两段点击与拖拽等价 (1.7s)
+  ok 29 [chromium] › tests\e2e\motion.spec.ts:94:3 › REQ-044 visible tween wiring + favicon › panel fade uses 200ms and 100ms under reduced motion (589ms)
+  ok 26 [chromium] › tests\e2e\core-flow.spec.ts:47:3 › REQ-019/REQ-020 核心链路 › 结算面板字段与 300ms 输入锁（失败路径） (9.2s)
+
+  29 passed (28.5s)
+npm notice
+npm notice New major version of npm available! 11.12.1 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

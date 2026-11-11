@@ -1,0 +1,67 @@
+﻿== images ==
+bg-main.webp             1920x1080  WEBP  alpha=False    15.9KB
+board-frame.webp         560x560   WEBP  alpha=True      6.1KB
+cell-empty.webp          64x64    WEBP  alpha=True      1.8KB
+tile-star.webp           64x64    WEBP  alpha=True      2.8KB
+tile-water.webp          64x64    WEBP  alpha=True      2.2KB
+tile-leaf.webp           64x64    WEBP  alpha=True      2.1KB
+tile-flame.webp          64x64    WEBP  alpha=True      2.2KB
+tile-crystal.webp        64x64    WEBP  alpha=True      1.5KB
+tile-bolt.webp           64x64    WEBP  alpha=True      2.0KB
+tile-select.webp         64x64    WEBP  alpha=True      2.0KB
+special-line-h.webp      64x64    WEBP  alpha=True      1.1KB
+special-line-v.webp      64x64    WEBP  alpha=True      1.1KB
+special-rainbow.webp     64x64    WEBP  alpha=True      2.8KB
+obs-ice.webp             64x64    WEBP  alpha=True      1.9KB
+obs-stone-2.webp         64x64    WEBP  alpha=True      2.8KB
+obs-stone-1.webp         64x64    WEBP  alpha=True      3.2KB
+obs-hole.webp            64x64    WEBP  alpha=True      1.8KB
+fx-clear.webp            128x128   WEBP  alpha=True      8.4KB
+ui-panel.webp            720x520   WEBP  alpha=True     10.2KB
+icon-star-on.svg         48x48    SVG      389B
+icon-star-off.svg        48x48    SVG      377B
+icon-play.svg            32x32    SVG      291B
+icon-pause.svg           32x32    SVG      394B
+icon-restart.svg         32x32    SVG      298B
+icon-back.svg            32x32    SVG      287B
+icon-lock.svg            32x32    SVG      369B
+icon-sound-on.svg        32x32    SVG      385B
+icon-sound-off.svg       32x32    SVG      371B
+icon-music-on.svg        32x32    SVG      497B
+icon-music-off.svg       32x32    SVG      468B
+icon-settings.svg        32x32    SVG      750B
+icon-trophy.svg          32x32    SVG      441B
+icon-close.svg           32x32    SVG      286B
+images total = 77.4 KB (limit 1638.4 KB)
+bg-main = 15.9 KB; first-screen images = 71.9 KB (limit 1228.8)
+== audio ==
+bgm-main.ogg  dur=60.000s (spec 60.00) ch=1 rate=48000   712.3KB OK
+bgm-main.mp3  dur=60.000s (spec 60.00) ch=1 rate=48000   937.9KB OK
+sfx-swap.ogg  dur= 0.120s (spec 0.12) ch=1 rate=48000     4.8KB OK
+sfx-swap.mp3  dur= 0.120s (spec 0.12) ch=1 rate=48000     2.3KB OK
+sfx-invalid.ogg  dur= 0.150s (spec 0.15) ch=1 rate=48000     5.4KB OK
+sfx-invalid.mp3  dur= 0.144s (spec 0.15) ch=1 rate=48000     2.6KB OK
+sfx-match.ogg  dur= 0.250s (spec 0.25) ch=1 rate=48000     6.8KB OK
+sfx-match.mp3  dur= 0.240s (spec 0.25) ch=1 rate=48000     4.1KB OK
+sfx-cascade.ogg  dur= 0.300s (spec 0.30) ch=1 rate=48000     7.4KB OK
+sfx-cascade.mp3  dur= 0.312s (spec 0.30) ch=1 rate=48000     5.3KB OK
+sfx-special-line.ogg  dur= 0.400s (spec 0.40) ch=1 rate=48000     8.7KB OK
+sfx-special-line.mp3  dur= 0.408s (spec 0.40) ch=1 rate=48000     6.8KB OK
+sfx-special-rainbow.ogg  dur= 0.600s (spec 0.60) ch=1 rate=48000    10.9KB OK
+sfx-special-rainbow.mp3  dur= 0.600s (spec 0.60) ch=1 rate=48000     9.8KB OK
+sfx-ice-break.ogg  dur= 0.300s (spec 0.30) ch=1 rate=48000     7.3KB OK
+sfx-ice-break.mp3  dur= 0.312s (spec 0.30) ch=1 rate=48000     5.3KB OK
+sfx-stone-break.ogg  dur= 0.350s (spec 0.35) ch=1 rate=48000     8.0KB OK
+sfx-stone-break.mp3  dur= 0.360s (spec 0.35) ch=1 rate=48000     6.0KB OK
+sfx-shuffle.ogg  dur= 0.500s (spec 0.50) ch=1 rate=48000     9.9KB OK
+sfx-shuffle.mp3  dur= 0.504s (spec 0.50) ch=1 rate=48000     8.3KB OK
+sfx-star.ogg  dur= 0.500s (spec 0.50) ch=1 rate=48000     9.1KB OK
+sfx-star.mp3  dur= 0.504s (spec 0.50) ch=1 rate=48000     8.3KB OK
+sfx-win.ogg  dur= 1.500s (spec 1.50) ch=1 rate=48000    20.0KB OK
+sfx-win.mp3  dur= 1.512s (spec 1.50) ch=1 rate=48000    24.0KB OK
+sfx-lose.ogg  dur= 1.200s (spec 1.20) ch=1 rate=48000    16.1KB OK
+sfx-lose.mp3  dur= 1.200s (spec 1.20) ch=1 rate=48000    19.1KB OK
+sfx-click.ogg  dur= 0.080s (spec 0.08) ch=1 rate=48000     4.8KB OK
+sfx-click.mp3  dur= 0.072s (spec 0.08) ch=1 rate=48000     1.5KB OK
+audio total = 1872.9 KB (limit 2048)
+FAILS: 0

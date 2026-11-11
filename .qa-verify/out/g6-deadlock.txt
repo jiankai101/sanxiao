@@ -1,0 +1,14 @@
+﻿STEP {"move":"(1,2)->(1,3)","status":"playing","movesLeft":29,"score":180,"shuffles":0,"findMove":"1,6->1,7"}
+STEP {"move":"(3,5)->(4,5)","status":"playing","movesLeft":28,"score":360,"shuffles":0,"findMove":"1,6->1,7"}
+STEP {"move":"(1,6)->(1,7)","status":"playing","movesLeft":27,"score":810,"shuffles":0,"findMove":"1,6->2,6"}
+STEP {"move":"(1,6)->(2,6)","status":"playing","movesLeft":26,"score":990,"shuffles":0,"findMove":"1,3->1,4"}
+STEP {"move":"(1,3)->(1,4)","status":"playing","movesLeft":25,"score":1170,"shuffles":1,"findMove":"1,6->1,7"}
+AFTER {"start":{"status":"playing","levelId":8,"seed":1,"score":0,"movesLeft":30},"after":{"status":"playing","levelId":8,"seed":1,"score":1170,"movesLeft":25},"shuffles":1,"findMove":{"a":{"row":1,"col":6},"b":{"row":1,"col":7}},"toast":"无可消除步骤，已重排"}
+PASS REQ-016/deadlock-detected-shuffled :: 5 步后 shuffle 事件数=1（期望 ≥1）
+PASS REQ-016/still-playing :: status=playing
+PASS REQ-016/no-step-cost :: 步数 30->25（5 次有效交换应只扣 5 步）
+PASS REQ-016/has-move-after-shuffle :: 重排后 findMove={"a":{"row":1,"col":6},"b":{"row":1,"col":7}}
+PASS REQ-016/toast :: toast="无可消除步骤，已重排"
+PASS REQ-016/playable-after-shuffle :: 重排后继续交换 {"a":{"row":1,"col":6},"b":{"row":1,"col":7}}：步数 25->24，status=playing
+PASS REQ-051/pageerror :: pageerror=[]
+SUMMARY total=7 pass=7 fail=0

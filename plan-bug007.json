@@ -1,0 +1,11 @@
+{
+    "summary":  "G8 新增 BUG-007：resize debounce 吃掉 200ms 预算，收紧急限至 ≤150ms 并补四视口计时断言。",
+    "tasks":  [
+                  {
+                      "id_ref":  "BUG007-RESIZE",
+                      "title":  "BUG-007 修复：resize 防抖收紧，缩放后重绘 ≤200ms（REQ-041）",
+                      "assigned_to":  "pt-impl-core",
+                      "body":  "背景：G8 判 BUG-007（Low，REQ-041）：缩放后重绘实测 204.4–208.5ms，超过 spec「200ms 内完成重绘」。根因：main.ts / canvas-host.ts 的 resize debounce 也是 200ms，预算被防抖本身用尽，绘制必然超时。\n\n修复要求（范围限 src/render/canvas-host.ts、src/systems/main.ts（若 debounce 在此设置）、tests/render、tests/e2e；不改 core 语义、不改 assets/spec/plan/tasks）：\n1. 把 resize 防抖收紧到 **≤150ms**（建议 120ms），使「最后一次 resize + 防抖 + 重绘」整体 ≤200ms；不加长其他时序。\n2. 缩放后必须仍保证：渲染分辨率 = min(devicePixelRatio,2)、元素不模糊、对局状态与步数不重置（既有断言不得放宽）。\n3. 补/改测试：四视口（1280×800 / 600×800 / 360×640 / 320×568）各做一次 resize，断言「resize → 完成重绘」≤200ms（可用 MutationObserver/帧回调计时，与 G8 同法），并保留 debounce 合并抖动（连续多次 resize 只重绘一次）的断言。\n4. 不改 REQ 数值；不得通过放宽断言或删除用例来「修绿」。\n\n交付：代码 + 测试 + 说明（新的 debounce 值、四视口实测耗时数据）。\n验收：npm test 全绿；四视口 resize→重绘均 ≤200ms；DPR clamp 与状态保持不变；连续 resize 仍合并为一次重绘。"
+                  }
+              ]
+}

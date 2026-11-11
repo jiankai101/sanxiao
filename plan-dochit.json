@@ -1,0 +1,11 @@
+{
+    "summary":  "CR-008/009 后 plan 与 tasks 仍为旧口径，做一次纯文档对齐，避免维护者按错误口径改代码。",
+    "tasks":  [
+                  {
+                      "id_ref":  "DOC-HITPATHS",
+                      "title":  "plan/tasks 文档对齐 CR-008 口径（A 类静默忽略 / B 类 invalid）",
+                      "assigned_to":  "pt-architect",
+                      "body":  "背景：CR-008/CR-009 已把命中失败口径定为 A 类静默忽略（棋盘投影矩形外 / 石块格 / 死格：不改变选中、不扣步、不播 invalid 音效、无 aria 播报）与 B 类无效交换（非相邻 / 同格 / 无匹配回弹：播 invalid 音效）。但 plan.md 与 tasks.md 仍保留 CR-008 前「障碍/越界 → invalid」旧口径，属文档漂移，会让后续维护者按错误口径改代码。\n\n需处理（spec-lead 已定位的具体位置，请自行复核并全文搜索）：\n- tasks.md L594、L596\n- plan.md L932、L1313、L1482\n\n改动要求（纯文档，禁止改代码/测试/资源，禁止改 REQ 与 spec）：\n1. 上述位置及全文其他同类表述，统一改为 A/B 两类口径：越界/石块/死格 = 静默忽略（无 invalid 音效、选中不变）；非相邻/同格/无匹配 = 播 invalid 音效、不扣步。\n2. 如涉及 TASK 卡 DoD，允许改 DoD 措辞，但不得改 TASK 编号、REQ 映射、依赖与文件边界。\n3. plan.md 与 tasks.md 版本号各 +0.0.1（plan v1.1.1→v1.1.2、tasks v1.1.1→v1.1.2），文首「上游」补 spec v1.1.3。\n4. 报告里给出改动行清单与「越界.*invalid」「障碍.*invalid」残留检索结果（应为 0，历史裁决留痕除外并说明）。\n\n交付：更新后的 plan.md、tasks.md + 说明（改动行、残留检索、TASK/REQ 连续性校验）。\n验收：两文件无「A 类场景播 invalid」的错误表述；TASK-001~041 与 51 条 REQ 映射零变化；未触碰 spec/代码/资源。"
+                  }
+              ]
+}

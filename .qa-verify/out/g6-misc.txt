@@ -1,0 +1,18 @@
+﻿PASS REQ-045/lazy-bgm :: 首屏（未发生手势）音频请求数=0
+PASS REQ-051/first-screen :: 首屏传输=198.0 KB（≤ 3.0 MB）
+PASS REQ-045/gesture-bgm :: 首次手势后音频请求=bgm-main-CYoXvdNc.ogg,sfx-click-GXgMqu7w.ogg
+PASS REQ-049/keyboard :: Tab 聚焦「起步」后 Enter 进入对局
+PASS REQ-049/dom-44 :: 可见按钮 6 个，<44px 的 0 个 []
+PASS REQ-043/toggle :: 开启色盲模式后画布像素发生变化（104607 → 283482 bytes）
+PASS REQ-043/persist :: 存档 settings.colorblindMode=true
+PASS REQ-047/persist :: 存档 bgmVolume=5、reducedMotion=true
+PASS REQ-047/reload :: 刷新后色盲=true、BGM 音量=5
+PASS REQ-042/warn-once :: 图片失败 console.warn 条数=0：[]
+PASS REQ-042/render :: 缺图后仍渲染（采样非透明点 692）
+PASS REQ-042/playable :: 缺图后仍可操作（步数 20 → 20）
+PASS REQ-048/badge :: 音频资源加载失败时显示「音频不可用」标记=true
+PASS REQ-048/playable :: 音频失败不影响开局
+PASS REQ-051/p95 :: 10s 采样 2400 帧，p95 帧间隔=4.30ms（≤20ms）
+PASS REQ-051/fps :: ≥50fps 帧占比=100.0%（≥95%）
+
+SUMMARY total=16 pass=16 fail=0

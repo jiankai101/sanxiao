@@ -1,0 +1,40 @@
+﻿PASS REQ-051/static :: dist/ 由纯静态服务器(python http.server)托管并完成首屏渲染
+PASS REQ-021/unlock :: 初始仅第 1 关解锁（8 卡 / 锁 7 张）
+PASS REQ-034/051/network :: 第三方请求数=0，总请求=9
+PASS REQ-001/HUD :: 第 1 关初始 分数=0 步数=20
+PASS REQ-040/render :: 64 格全部识别：6 种元素，未识别 0 格
+PASS REQ-005/probe :: 按 spec REQ-005 自算的有效交换=[[1,1],[1,2]]
+PASS REQ-003/REQ-015 :: 拖动相邻交换：步数 20 → 19
+PASS REQ-014 :: 分数 0 → 450（整数）
+PASS REQ-050 :: aria-live = "分数 450，剩余步数 19，目标 分数 450/1500"
+PASS REQ-049/outside :: 棋盘投影矩形外点击：步数 19→19，分数 450→450
+PASS REQ-004/nonadj :: 非相邻两段点击：步数 19→19（不交换/不扣步）
+PASS REQ-003/deselect :: 点击已选格取消选中，步数保持 19
+PASS REQ-041/state-600 :: 缩放到 600×800 后分数/步数保持（450/19）
+PASS REQ-041/state-360 :: 缩放到 360×640 后分数/步数保持（450/19）
+PASS REQ-041/state-320 :: 缩放到 320×568 后分数/步数保持（450/19）
+PASS REQ-030/flag :: 对局中 lastSessionInterrupted=true
+PASS REQ-030/no-snapshot :: 存档键=saveVersion,lastSessionInterrupted,unlockedLevelId,levelRecords,settings,stats,updatedAt
+PASS REQ-030/E-04 :: 刷新后回到选关、提示="上一局已中断"（不恢复对局）
+PASS REQ-030/flag-reset :: 提示后立即写回 false
+PASS REQ-030/once :: 同一会话二次进入不重复提示（toast=""）
+PASS REQ-031/toast :: 损坏提示="存档已重置"
+PASS REQ-031/backup :: 备份键=["wmg.backup.save.2026-11-10T18:15:44.589Z"]
+PASS REQ-031/playable :: 损坏后仍可正常进入第 1 关（步数 20）
+PASS REQ-051/pageerror :: pageerror/requestfailed=[]
+PASS REQ-051/console :: console.error=[]
+PASS REQ-040/align-960x720 :: 画布盒 960.0×720.0 @(0.0,0.0)，绘制变换 e=0.0 f=0.0；棋盘左上应在画布内 (224.0,96.0)，实际 (224.0,96.0)
+PASS REQ-041/fit-960x720 :: 场景绘制范围 0..960.0 × 0..720.0，画布 960×720
+PASS REQ-040/align-1280x800 :: 画布盒 1066.7×800.0 @(106.7,0.0)，绘制变换 e=0.0 f=0.0；棋盘左上应在画布内 (248.9,106.7)，实际 (248.9,106.7)
+PASS REQ-041/fit-1280x800 :: 场景绘制范围 0..1066.7 × 0..800.0，画布 1067×800
+PASS REQ-040/align-600x800 :: 画布盒 600.0×450.0 @(0.0,175.0)，绘制变换 e=0.0 f=0.0；棋盘左上应在画布内 (140.0,60.0)，实际 (140.0,60.0)
+PASS REQ-041/fit-600x800 :: 场景绘制范围 0..600.0 × 0..450.0，画布 600×450
+PASS REQ-040/align-360x640 :: 画布盒 360.0×270.0 @(0.0,185.0)，绘制变换 e=0.0 f=0.0；棋盘左上应在画布内 (84.0,36.0)，实际 (84.0,36.0)
+PASS REQ-041/fit-360x640 :: 场景绘制范围 0..360.0 × 0..270.0，画布 360×270
+PASS REQ-040/align-320x568 :: 画布盒 320.0×240.0 @(0.0,164.0)，绘制变换 e=0.0 f=0.0；棋盘左上应在画布内 (74.7,32.0)，实际 (74.7,32.0)
+PASS REQ-041/fit-320x568 :: 场景绘制范围 0..320.0 × 0..240.0，画布 320×240
+PASS REQ-041/DPR :: dpr=3：backing 2048×1536 = CSS 1024.0×768.0 × min(dpr,2)
+PASS REQ-032/banner :: 常驻提示条="当前为临时存档，刷新将丢失进度"
+PASS REQ-032/playable :: 无 localStorage 仍可开局，pageerror=0
+
+SUMMARY total=38 pass=38 fail=0

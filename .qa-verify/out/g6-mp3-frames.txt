@@ -1,0 +1,17 @@
+﻿file                        nominal mp3_frames  mp3_dur  err_ms frames_err  decoded   corr
+bgm-main.mp3                 60.000       2501   60.024   +24.0      1.000   59.976  0.078
+sfx-swap.mp3                  0.120          6    0.144   +24.0      1.000    0.096  0.997
+sfx-invalid.mp3               0.150          7    0.168   +18.0      0.750    0.120  0.996
+sfx-match.mp3                 0.250         11    0.264   +14.0      0.583    0.216  0.998
+sfx-cascade.mp3               0.300         14    0.336   +36.0      1.500    0.288  1.000  <-- FAIL
+sfx-special-line.mp3          0.400         18    0.432   +32.0      1.333    0.384  0.998  <-- FAIL
+sfx-special-rainbow.mp3       0.600         26    0.624   +24.0      1.000    0.576  1.000
+sfx-ice-break.mp3             0.300         14    0.336   +36.0      1.500    0.288  0.994  <-- FAIL
+sfx-stone-break.mp3           0.350         16    0.384   +34.0      1.417    0.336  0.999  <-- FAIL
+sfx-shuffle.mp3               0.500         22    0.528   +28.0      1.167    0.480  1.000  <-- FAIL
+sfx-star.mp3                  0.500         22    0.528   +28.0      1.167    0.480  1.000  <-- FAIL
+sfx-win.mp3                   1.500         64    1.536   +36.0      1.500    1.488  1.000  <-- FAIL
+sfx-lose.mp3                  1.200         51    1.224   +24.0      1.000    1.176  1.000
+sfx-click.mp3                 0.080          4    0.096   +16.0      0.667    0.048  0.991
+audio total = 1872.9 KB (limit 2048)
+FAILS: 17 ['bgm-main frame error 1.000', 'sfx-cascade', 'sfx-cascade frame error 1.500', 'sfx-special-line', 'sfx-special-line frame error 1.333', 'sfx-special-rainbow frame error 1.000', 'sfx-ice-break', 'sfx-ice-break frame error 1.500', 'sfx-stone-break', 'sfx-stone-break frame error 1.417', 'sfx-shuffle', 'sfx-shuffle frame error 1.167', 'sfx-star', 'sfx-star frame error 1.167', 'sfx-win', 'sfx-win frame error 1.500', 'sfx-lose frame error 1.000']

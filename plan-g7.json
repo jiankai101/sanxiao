@@ -1,0 +1,16 @@
+{
+    "summary":  "修复与口径统一完成后启动 G7 终验：以真实解码器判 BUG-003、以 spec v1.1.3 判 A/B 命中口径，并重出 51 条 REQ 矩阵。",
+    "tasks":  [
+                  {
+                      "id_ref":  "G7-FINAL",
+                      "title":  "G7 终验：BUG-003 解码口径关闭 + A/B 命中口径达标 + 51 条 REQ 矩阵",
+                      "assigned_to":  "pt-qa-verifier",
+                      "body":  "前置：task-23（MP3 解码时长）、task-24/26（A/B 命中口径）、task-27（spec v1.1.3）、task-28（plan/tasks 文档对齐）均已完成。\n\n任务：G7 终验。不修改产品代码/spec/plan/tasks/tests/assets，只新增/更新 .qa-verify/ 与报告。\n\n必须覆盖：\n1. BUG-003 关闭判定：用**游戏真实解码器**（Chrome decodeAudioData，必要时 libsndfile/ffmpeg 交叉）逐文件测 14 个 MP3 播放时长，要求每个与 spec 10.2 标称误差 ≤1 帧（24ms）；OGG 不受影响；音频总量 ≤2048KB；BGM 接缝不退化。这是本项唯一权威口径，禁止再用 frames×1152 之类的容器声明值判定。\n2. A/B 命中口径（spec v1.1.3）：A 类（棋盘投影矩形外、石块格、死格）必须静默忽略——选中态不变、不扣步、分数不变、**无 invalid 音频事件**、无 aria 播报；B 类（非相邻、同格、无匹配回弹）必须播 invalid 音效且不扣步。四视口（1280×800/600×800/360×640/320×568）各抽查至少一次 A 类与一次 B 类。\n3. BUG-001/002/004 回归确认：四视口绘制与命中 0 格偏差（360/320 不得 null）、seed=1 复现序列重排生效、REQ-045/048 用例存在且有效。\n4. 全量：npm test、npm run typecheck、npm run build、npx playwright test；关键链路抽查（固定种子通关写榜、6 类损坏存档、刷新中断提示一次、零第三方请求、p95 帧间隔、禁用词扫描按既有口径）。\n5. 重出 51 条 REQ 矩阵；REQ-039 若仍无 3 人签署，继续标 BLOCKED 并注明属人工项（不得默认 PASS）。\n\n交付：g7-final-report.md（51 条矩阵 + BUG-001~004 关闭判定 + A/B 口径达标结论 + 新增缺陷 BUG-005 起）+ .qa-verify 证据。\n规则：只依据 spec v1.1.3 判定；禁止照抄实现方或 Manager 的既有结论；总结论只能是 全部 PASS / 存在缺陷（N 个，含严重级别）/ 阻塞。\n验收：四个 BUG 有明确关闭/未关闭结论与证据；矩阵 51 条无遗漏；A/B 口径实测；REQ-039 状态如实。",
+                      "depends_on_refs":  [
+                                              "task-23",
+                                              "task-26",
+                                              "task-28"
+                                          ]
+                  }
+              ]
+}

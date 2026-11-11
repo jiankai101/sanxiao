@@ -1,0 +1,11 @@
+{
+    "summary":  "task-16 追加补强已落盘但原任务已验收关闭，新开归档任务让 Worker 正式提交证据。",
+    "tasks":  [
+                  {
+                      "id_ref":  "T16-EVIDENCE",
+                      "title":  "task-16 追加补强：正式提交严格锁断言与通关写榜证据",
+                      "assigned_to":  "pt-impl-systems",
+                      "body":  "背景：task-16 的追加要求（300ms 结算锁严格断言、固定种子完整通关写榜证据）已由 impl-systems 完成落盘，但 task-16 已被 Manager 验收为 completed，Worker 无法再对同一 attempt 提交，故新开本任务用于正式提交与归档。\n\n要求：\n1. 不要重写已完成的实现；直接复跑并确认以下产物有效：tests/e2e/settlement-strict.spec.ts、docs/task-16-qa-evidence.md、test-results/task-16-victory-evidence.json、src/systems/app.ts 的 panelUnlockAtForTests 只读钩子、src/systems/main.ts 与 env.d.ts 的测试钩子。\n2. 提交内容需包含：npx playwright test tests/e2e/settlement-strict.spec.ts 的结果、npm test 与 npm run build 的结果、固定种子通关记录（seed=1、6 步、score=2790、3 星、榜单记录与存档字段）。\n3. 若复跑发现失败或不稳定，就地修复并说明原因；不得放宽断言阈值（300ms 锁必须断言 t+200ms 无效、t+350ms 有效）。\n4. 不得改 spec/plan/tasks、src/core、src/render、assets。\n\n交付：证据文件路径 + 复跑命令与输出摘要 + 是否存在不稳定用例的说明。\n验收：settlement-strict 用例稳定通过；npm test 全绿；build 成功；证据文件与代码状态一致。"
+                  }
+              ]
+}

@@ -1,0 +1,1 @@
+{"version":"2.1.8","results":[[":tests/core/rng.spec.ts",{"duration":7.24860000000001,"failed":false}],[":tests/core/constants.spec.ts",{"duration":3.9266999999999825,"failed":false}],[":tests/core/purity.spec.ts",{"duration":32.742500000000064,"failed":false}]]}

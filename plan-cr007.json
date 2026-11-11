@@ -1,0 +1,11 @@
+{
+    "summary":  "资产验收后修正两处规格元数据：AS-01（tile-*.webp 却标 PNG 透明）与上游依据版本滞后，spec 升 v1.1.1，资产不返工。",
+    "tasks":  [
+                  {
+                      "id_ref":  "CR7-ASSETFMT",
+                      "title":  "CR-007：第 10 章资源格式列改为 WebP（带 alpha）+ 上游依据对齐 constitution v1.1.1",
+                      "assigned_to":  "pt-spec-lead",
+                      "body":  "背景：资产已交付并验收（61 个资源，33 图片 + 28 音频），暴露两处规格元数据缺陷：\n- AS-01：第 10.1 章资源文件名为 tile-*.webp / bg-main.webp 等，但「格式」列写「PNG 透明」，与文件名及实际交付格式自相矛盾；资产实际交付带 alpha 的 WebP。\n- 第 10 章元数据滞后：spec 文首「上游依据」仍写 constitution v1.1.0，而宪法已升 v1.1.1（CR-006）。\n\n裁决（Manager，已定）：以实际交付格式为准，规格改文档而非返工资产（不重新生成任何资源）。\n\n改动范围（严格）：\n1. 第 10.1 章「格式」列：所有取值「PNG 透明」改为「WebP（带 alpha）」；若同表另有 PNG 表述按同一口径处理。不得改动文件名、尺寸、主色、用途列。\n2. 如第 10 章正文出现「PNG 透明」「PNG」等与交付格式冲突的表述，一并改为 WebP（带 alpha）。\n3. 文首「上游依据」改为 constitution v1.1.1。\n4. 第 15 章新增 CR-007 行（六列）：原因（AS-01 格式列与文件名/实际交付冲突 + 上游依据滞后）、受影响 REQ（REQ-040/REQ-042 措辞澄清，行为与阈值不变）、下游影响（asset-maker 无需返工；qa-verifier 按 WebP 校验格式；数量仍 33 图片）。\n5. spec 版本 v1.1.0 → v1.1.1，状态保持已发布；文首「最近变更」写 CR-007。\n\n禁止：改动 REQ 编号/行为阈值、第 5 章数值表、第 6 章 8 关目标、第 8 章存档字段、第 11 章音效清单时长与格式（OGG/MP3 已与交付一致）、constitution.md 任何内容。\n\n交付：改后的 spec.md + 说明（改动行清单、REQ 仍 51 条连续、禁用词 0 命中、新哈希、与 assets/manifest.md 格式列一致性核对结果）。\n验收：第 10 章格式列与 assets/manifest.md 全部 33 个图片条目格式一致；REQ 51 条零漂移；文首上游依据为 constitution v1.1.1。"
+                  }
+              ]
+}

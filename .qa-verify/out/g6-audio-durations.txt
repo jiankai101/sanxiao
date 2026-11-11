@@ -1,0 +1,18 @@
+﻿bgm-main             nom=60.00 ogg=60.0000(+0.0) mp3=59.9760(-24.0) |o-m|=24.0ms 48000/48000 1/1
+sfx-swap             nom=0.12 ogg=0.1173(-2.7) mp3=0.0960(-24.0) |o-m|=21.3ms 48000/48000 1/1
+sfx-invalid          nom=0.15 ogg=0.1493(-0.7) mp3=0.1200(-30.0) |o-m|=29.3ms 48000/48000 1/1
+sfx-match            nom=0.25 ogg=0.2473(-2.7) mp3=0.2160(-34.0) |o-m|=31.3ms 48000/48000 1/1
+sfx-cascade          nom=0.30 ogg=0.2973(-2.7) mp3=0.2880(-12.0) |o-m|=9.3ms 48000/48000 1/1
+sfx-special-line     nom=0.40 ogg=0.3987(-1.3) mp3=0.3840(-16.0) |o-m|=14.7ms 48000/48000 1/1
+sfx-special-rainbow  nom=0.60 ogg=0.5973(-2.7) mp3=0.5760(-24.0) |o-m|=21.3ms 48000/48000 1/1
+sfx-ice-break        nom=0.30 ogg=0.2973(-2.7) mp3=0.2880(-12.0) |o-m|=9.3ms 48000/48000 1/1
+sfx-stone-break      nom=0.35 ogg=0.3473(-2.7) mp3=0.3360(-14.0) |o-m|=11.3ms 48000/48000 1/1
+sfx-shuffle          nom=0.50 ogg=0.4973(-2.7) mp3=0.4800(-20.0) |o-m|=17.3ms 48000/48000 1/1
+sfx-star             nom=0.50 ogg=0.4973(-2.7) mp3=0.4800(-20.0) |o-m|=17.3ms 48000/48000 1/1
+sfx-win              nom=1.50 ogg=1.5000(+0.0) mp3=1.4880(-12.0) |o-m|=12.0ms 48000/48000 1/1
+sfx-lose             nom=1.20 ogg=1.2000(+0.0) mp3=1.1760(-24.0) |o-m|=24.0ms 48000/48000 1/1
+sfx-click            nom=0.08 ogg=0.0787(-1.3) mp3=0.0480(-32.0) |o-m|=30.7ms 48000/48000 1/1
+
+frame=24.0ms | |err|>1frame: 6 (bgm-main:-24ms, sfx-invalid:-30ms, sfx-match:-34ms, sfx-special-rainbow:-24ms, sfx-lose:-24ms, sfx-click:-32ms)
+|ogg-mp3|>20ms: 7 (bgm-main:24ms, sfx-swap:21ms, sfx-invalid:29ms, sfx-match:31ms, sfx-special-rainbow:21ms, sfx-lose:24ms, sfx-click:31ms)
+format mismatch: 0

@@ -1,0 +1,24 @@
+﻿PASS REQ-015/win-loop :: 用 6 次真实鼠标拖动完成第 1 关：status=won 分数=2790 剩余步数=14
+PASS REQ-028/胜利 :: 结算面板包含「胜利」
+PASS REQ-028/本局分数 :: 结算面板包含「本局分数」
+PASS REQ-028/历史最高分 :: 结算面板包含「历史最高分」
+PASS REQ-028/剩余步数 :: 结算面板包含「剩余步数」
+PASS REQ-028/★ :: 结算面板包含「★」
+PASS REQ-028/300ms-lock :: 面板出现瞬间按钮 disabled=true
+PASS REQ-028/300ms-unlock :: 400ms 后按钮可点击
+PASS REQ-035/count :: 胜利写入 1 条排行榜记录（实际 1）
+PASS REQ-035/fields :: 记录={"id":"1-1794334812739-1","levelId":1,"score":2790,"stars":3,"movesUsed":6,"achievedAt":"2026-11-10T18:20:12.739Z","seed":1}
+PASS REQ-026/stars :: 星级=3，分数=2790（阈值 2000/2600）
+PASS REQ-030/unlock :: 通关后 unlockedLevelId=2
+PASS REQ-034/ui :: 排行榜界面标题为「本地排行榜」
+PASS REQ-034/banned-全球 :: 界面不含禁用词「全球」
+PASS REQ-034/banned-在线 :: 界面不含禁用词「在线」
+PASS REQ-034/banned-全服 :: 界面不含禁用词「全服」
+PASS REQ-034/banned-服务器排名 :: 界面不含禁用词「服务器排名」
+PASS REQ-037/row :: 首行="1第 1 关 起步2790★★★62026-11-11 02:20"（含关卡名/分数/星级）
+PASS REQ-037/limit-text :: 展示条数上限说明
+PASS REQ-030/persist :: 刷新后已解锁关卡数=2，排行榜记录数=1
+PASS REQ-051/pageerror :: pageerror=[]
+PASS REQ-035/lose-no-write :: 第 2 关结束 status=lost，排行榜记录数=1（失败不写入）
+
+SUMMARY total=22 pass=22 fail=0

@@ -1,0 +1,14 @@
+{
+    "summary":  "BUG-007 修复后做 G9 收尾复核：确认七项缺陷状态与 51 条 REQ 矩阵，作为父任务最终门禁依据。",
+    "tasks":  [
+                  {
+                      "id_ref":  "G9-FINAL",
+                      "title":  "G9 收尾复核：BUG-007 关闭 + 七项缺陷终判 + 51 条 REQ 矩阵",
+                      "assigned_to":  "pt-qa-verifier",
+                      "body":  "前置：task-37 已修复 BUG-007（RESIZE_DEBOUNCE_MS=120），Manager 已复跑 npm test 223 全绿 + resize.spec 3/3。\n\n任务：G9 收尾复核（窄范围）。不改任何代码/spec/plan/tasks/tests/assets，只新增/更新 .qa-verify/ 与报告。\n\n必须覆盖：\n1. BUG-007 关闭判定：四视口（1280×800/600×800/360×640/320×568）各做 resize，独立计时「resize → 完成重绘」必须 ≤200ms；同时确认 DPR clamp=min(dpr,2)、对局状态与步数不重置、连续 resize 只重绘一次。用你自己的计时方法，不要复用实现方测试。\n2. 全量回归抽查：npm test、npm run typecheck、npm run build、npx playwright test，并抽查 BUG-001（四视口 64 格 0 偏差）、BUG-002（seed=1 重排）、BUG-003（decodeAudioData 14/14）、BUG-005（四类落点 invalid 计数）四项不得因本次改动回归。\n3. 重出 51 条 REQ 矩阵（基线 spec v1.1.4）；REQ-039 仍无 3 人签署则继续标 BLOCKED（人工项，不得默认 PASS）。\n\n交付：g9-final-report.md（51 条矩阵 + BUG-001~007 关闭判定 + 是否新增 BUG-008）+ 证据。\n规则：只依据 spec v1.1.4；禁止照抄实现方或 Manager 结论；总结论只能是 全部 PASS / 存在缺陷（N 个，含严重级别）/ 阻塞。\n验收：七个 BUG 均有明确结论；矩阵 51 条无遗漏；REQ-039 如实标注；若全绿则明确写出「除 REQ-039 人工项外全部 PASS」。",
+                      "depends_on_refs":  [
+                                              "task-37"
+                                          ]
+                  }
+              ]
+}

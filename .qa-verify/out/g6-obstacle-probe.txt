@@ -1,0 +1,48 @@
+﻿[
+ {
+  "label": "hole",
+  "cell": [
+   3,
+   3
+  ],
+  "selectedAfterClick": {
+   "row": 3,
+   "col": 3
+  },
+  "selectedAfterNext": null,
+  "score": "0->0",
+  "moves": "30->30",
+  "status": "playing"
+ },
+ {
+  "label": "stone",
+  "cell": [
+   2,
+   3
+  ],
+  "selectedAfterClick": {
+   "row": 2,
+   "col": 3
+  },
+  "selectedAfterNext": null,
+  "score": "0->0",
+  "moves": "30->30",
+  "status": "playing"
+ },
+ {
+  "label": "hole-then-self",
+  "cell": [
+   3,
+   6
+  ],
+  "selectedAfterClick": {
+   "row": 3,
+   "col": 6
+  },
+  "selectedAfterNext": null,
+  "score": "0->0",
+  "moves": "30->30",
+  "status": "playing"
+ }
+]
+pageerror []

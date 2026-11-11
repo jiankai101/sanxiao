@@ -1,0 +1,7 @@
+﻿PASS REQ-042/warn-exactly-once :: [assets] console.warn 次数=1（规格：仅 1 次）：["[assets] image unavailable, using placeholder: bg-main.webp"]
+PASS REQ-042/no-dialog :: .dialog 数量=0
+PASS REQ-042/no-pageerror :: pageerror=[]
+PASS REQ-042/renders :: 画布非透明采样点=1383
+PASS REQ-042/board-visible :: 缺图后仍识别出 64/64 格
+PASS REQ-042/playable :: 缺图后自算有效交换 {"a":{"row":1,"col":1},"b":{"row":2,"col":1}}，步数 20→19
+SUMMARY total=6 pass=6 fail=0

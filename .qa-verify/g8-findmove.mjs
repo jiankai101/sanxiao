@@ -1,0 +1,10 @@
+﻿import { chromium } from '@playwright/test';
+const b = await chromium.launch({ channel: 'chrome' });
+const p = await b.newPage({ viewport: { width: 1280, height: 800 } });
+await p.goto('http://127.0.0.1:5056/?seed=20261110', { waitUntil: 'networkidle' });
+await p.waitForFunction(() => Boolean(window.__wmgTest));
+await p.evaluate(() => window.__wmgTest.startLevel(1));
+await p.waitForTimeout(300);
+console.log('findMove level1 seed20261110 =', JSON.stringify(await p.evaluate(() => window.__wmgTest.findMove())));
+console.log('state =', JSON.stringify(await p.evaluate(() => window.__wmgTest.state())));
+await b.close();

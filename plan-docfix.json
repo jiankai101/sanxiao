@@ -1,0 +1,11 @@
+{
+    "summary":  "CR-007 落地后 plan.md 存在资源格式与上游版本号滞后，做一次纯文档一致性维护，不动任务卡与实现。",
+    "tasks":  [
+                  {
+                      "id_ref":  "PLAN-DOCFIX",
+                      "title":  "plan.md 文档一致性：资源格式对齐 spec v1.1.1 + 上游版本号更新",
+                      "assigned_to":  "pt-architect",
+                      "body":  "背景：spec 已升 v1.1.1（CR-007：第 10.1 章图片格式列由「PNG 透明」统一为「WebP（带 alpha）」）。plan.md 仍存在与之冲突的表述，且文首上游版本号滞后。属文档一致性维护，不涉及实现与任务卡变更。\n\n改动范围（严格）：\n1. plan.md 第 1454 行附近「WebP/PNG 透明」类表述改为与 spec v1.1.1 一致的口径：图片资源为 WebP（透明素材带 alpha）与 SVG，音频为 OGG/MP3。\n2. plan.md 文首「上游输入」更新为 constitution v1.1.1、spec v1.1.1（保留 CR 说明，补 CR-006/CR-007 一句）。\n3. 全文检索 PNG 残留，仅保留「历史裁决留痕」性质的引用（若有），其余改为 WebP。\n4. plan.md 版本 v1.1.0 → v1.1.1。\n\n禁止：改动任何 TASK 卡内容、REQ 映射、模块边界、常量索引数值、tasks.md 任何内容；不得新增或删除任务。\n\n交付：改后的 plan.md + 说明（改动行、PNG 残留核对结果、新哈希）。\n验收：plan.md 与 spec v1.1.1 的资源格式口径零冲突；tasks.md 未被修改；TASK-001~041 与 REQ 覆盖 51/51 不变。"
+                  }
+              ]
+}

@@ -1,0 +1,16 @@
+﻿import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ channel: 'chrome' });
+const ctx = await browser.newContext({ viewport: { width: 960, height: 720 } });
+const page = await ctx.newPage();
+const msgs = [];
+page.on('console', (m) => msgs.push(`${m.type()}: ${m.text()}`));
+page.on('requestfailed', (r) => msgs.push(`REQFAIL ${r.url().split('/').pop()} ${r.failure()?.errorText}`));
+await page.route('**/bg-main*.webp', (r) => r.abort());
+await page.route('**/board-frame*.webp', (r) => r.abort());
+await page.route('**/ui-panel*.webp', (r) => r.abort());
+await page.goto('http://127.0.0.1:5055/', { waitUntil: 'networkidle' });
+await page.locator('#screen-level-select .level-card[data-level-id="1"]').click();
+await page.waitForTimeout(1500);
+console.log(msgs.join('\n') || '(no console output)');
+await page.screenshot({ path: '.qa-verify/out/F2b-missing-bg.png' });
+await browser.close();
